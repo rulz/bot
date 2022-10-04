@@ -76,7 +76,6 @@ const massiveMsgTime = (array, i) => {
             var code = msgs.split('code:')[1].split(':code')[0]
             var phone = msgs.split('phone:')[1].split(':phone')[0]
             var msg = msgs.split('msg:')[1].split(':msg')[0]
-            console.log(code, phone, msg)
             if(code === 'sendMessage') {
                 client.sendMessage(phone, msg);
             }
@@ -103,6 +102,9 @@ const massiveMsg = (message) => {
     }
 }
 
+const massivePhoneMsg = (message) => {
+
+}
 
 
 const oneMsg = (message) => {
@@ -123,17 +125,13 @@ const oneMsg = (message) => {
 
 //Aquí sucede la magia, escucha los mensajes y aquí es donde se manipula lo que queremos que haga el bot
 client.on('message', message => {
-    // console.log(message.body);
-    // console.log(message.from);
-    // console.log(message)
-
     const massives = massiveMsg(message)
 
     if (massives === false) {
         const one = oneMsg(message)
-        if (one === false) {
-            forDefault(message)
-        }
+        // if (one === false) {
+        //     forDefault(message)
+        // }
     }
     
 });
