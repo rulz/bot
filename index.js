@@ -125,13 +125,17 @@ const oneMsg = (message) => {
 
 //Aquí sucede la magia, escucha los mensajes y aquí es donde se manipula lo que queremos que haga el bot
 client.on('message', message => {
+    // console.log(message.body);
+    // console.log(message.from);
+    // console.log(message)
+
     const massives = massiveMsg(message)
 
     if (massives === false) {
         const one = oneMsg(message)
-        // if (one === false) {
-        //     forDefault(message)
-        // }
+        if (one === false) {
+            forDefault(message)
+        }
     }
     
 });
